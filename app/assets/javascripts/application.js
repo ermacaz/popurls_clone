@@ -16,4 +16,31 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function() {
+    var yOff = -25;
+    var xOff =  30;
+
+    $(".hover-info").hover(function (e) {
+        var image = $(this).attr("thumb");
+        if (image) {
+            $("body").append("<p id='hover-content'> <img src='" + image + "'/></p>");
+            $("#hover-content")
+                .css("position", "absolute")
+                .css("top", (e.pageY - yOff) + "px")
+                .css("left", (e.pageX + xOff) + "px")
+                .fadeIn("fast");
+        }
+
+    },
+    function() {
+        $("#hover-content").remove();
+    });
+
+    $(".hover-info").mousemove(function (e) {
+        $("#hover-content")
+            .css("top", (e.pageY- yOff) + "px")
+            .css("left", (e.pageX + xOff) + "px")
+    });
+});
+
 

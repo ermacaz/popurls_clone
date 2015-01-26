@@ -5,7 +5,7 @@
     <h3><%= source.name %></h3>
     <p>
       <% source.get_feed.items.first(10).each do |item| %>
-      <a href="<%= item.link %>" target="_blank" thumb="<%= item.media_thumb_url %>"><%= item.title %></a><hr/>
+      <a class="hover-info" href="<%= item.link %>" target="_blank" thumb="<%= item.media_thumbnail_url %>"><%= item.title %></a><hr/>
       <% end %>
     </p>
   </div>
