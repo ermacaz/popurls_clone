@@ -1,0 +1,15 @@
+<% Source.all.each_with_index do |source, index| %>
+  <%= '<div class="container">'.html_safe if index % 3 == 0 %>
+  <%= '<div class="row">'.html_safe if index % 3 == 0 %>
+  <div class="col-xs-4">
+    <h3><%= source.name %></h3>
+    <p>
+      <% source.get_feed.items.first(5).each do |item| %>
+      <a href="<%= item.link %>"><%= item.title %></a><br/>
+      <% end %>
+    </p>
+  </div>
+  <%= '</div>'.html_safe if index % 3 == 2 %>
+  <%= '</div>'.html_safe if index % 3 == 2 %>
+
+<% end %>
